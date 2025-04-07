@@ -13,7 +13,7 @@ async function loadQuiz() {
   const res = await fetch(`http://localhost:3000/api/quiz/${quizId}`);
   const data = await res.json();
   quizData = data.quiz;
-
+  console.log(quizData);
   quizContainer.innerHTML = quizData
     .map((q, index) => `
       <div class="question-block">
