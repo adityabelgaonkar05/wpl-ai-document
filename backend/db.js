@@ -1,26 +1,47 @@
-// backend/db.js
-
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./quizzes.db");
+const crypto = require("crypto");
 
-// Create table if it doesn't exist
 db.serialize(() => {
   db.run(`
     CREATE TABLE IF NOT EXISTS quizzes (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id TEXT PRIMARY KEY,
       questions TEXT
     )
   `);
 });
 
-function saveQuiz(questionsJson) {
+function generateId(length = 8) {
+  return crypto.randomBytes(length).toString("base64url").slice(0, length);
+}
+
+function idExists(id) {
+  return new Promise((resolve, reject) => {
+    db.get(`SELECT 1 FROM quizzes WHERE id = ?`, [id], (err, row) => {
+      if (err) return reject(err);
+      resolve(!!row);
+    });
+  });
+}
+
+async function saveQuiz(questionsJson) {
+  let id;
+  let exists = true;
+
+  while (exists) {
+    id = generateId();
+    exists = await idExists(id);
+  }
+
+  console.log(`Generated unique ID: ${id}`);
+
   return new Promise((resolve, reject) => {
     db.run(
-      `INSERT INTO quizzes (questions) VALUES (?)`,
-      [questionsJson],
+      `INSERT INTO quizzes (id, questions) VALUES (?, ?)`,
+      [id, questionsJson],
       function (err) {
         if (err) return reject(err);
-        resolve(this.lastID); // return quiz_id
+        resolve(id);
       }
     );
   });
