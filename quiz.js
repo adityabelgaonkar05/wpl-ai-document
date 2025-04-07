@@ -12,7 +12,7 @@ let userAnswers = [];
 async function loadQuiz() {
   const res = await fetch(`http://localhost:3000/api/quiz/${quizId}`);
   const data = await res.json();
-  quizData = data.quiz;
+  quizData = typeof data.questions === "string" ? JSON.parse(data.questions) : data.questions;
   console.log(quizData);
   quizContainer.innerHTML = quizData
     .map((q, index) => `
