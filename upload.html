@@ -30,7 +30,9 @@
           method: "POST",
           body: formData
         });
+
         const data = await res.json();
+        console.log(data);
         if (data.quiz_id) {
           result.innerHTML = `<p>Quiz created with ID: <strong>${data.quiz_id}</strong></p>`;
         } else {
