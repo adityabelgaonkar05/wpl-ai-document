@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Platform</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Q</div>
+  </header>
+
+  <main class="main-content">
+    <section class="join-quiz">
+      <label for="quiz-code">Join Quiz</label>
+      <div class="input-join">
+        <input type="text" id="quiz-code" placeholder="Enter Joining Code" />
+        <button class="join-btn">JOIN</button>
+      </div>
+    </section>
+
+    <section class="journey">
+      <div class="journey-text">
+        <h2>Level Up Your<br/>Learning Journey.</h2>
+        <button class="explore-btn">EXPLORE</button>
+      </div>
+      <div class="journey-img"></div>
+    </section>
+
+    <section class="upload-section">
+      <h2>Compete, Learn, Excel</h2>
+      <div class="upload-box">
+        <p class="try-it">Try it now!</p>
+        <form id="upload-form" enctype="multipart/form-data">
+          <input type="file" id="pdf-input" name="pdf" accept="application/pdf" required style="display:none;" />
+          <button type="button" class="upload-btn" id="trigger-upload">UPLOAD YOUR PDF</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="tabs">
+      <button class="tab active">COMPETE</button>
+      <button class="tab">LEARN</button>
+      <button class="tab">EXCELL</button>
+      <button class="tab">CONNECT</button>
+    </section>
+
+    <section class="challenge">
+      <h2>"Challenge Your Mind"</h2>
+      <p>
+        Take on fun and thought-provoking<br/>
+        quizzes designed to test your<br/>
+        knowledge and skills.
+      </p>
+    </section>
+  </main>
+
+  <script src="script/upload.js" defer></script>
+</body>
+</html>

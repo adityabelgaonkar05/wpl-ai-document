@@ -1,0 +1,190 @@
+body {
+  background-color: #3a0d44;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background-color: #5a2b6d;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  text-align: center;
+  border: 1px solid #a478b1;
+}
+
+.login-container h2 {
+  margin-bottom: 30px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.login-container label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: white;
+  color: #3a0d44;
+}
+
+.login-container .login-btn {
+  width: 100%;
+  background-color: #90a07b;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-container .login-btn:hover {
+  background-color: #7f8f6d;
+}
+
+.login-container .bottom-links {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #c4afcf;
+}
+
+.login-container .bottom-links a {
+  color: #c4afcf;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.login-container .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #c4afcf;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #391c43;
+  color: #fff;
+}
+
+.header {
+  background: #2d103b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #9aba87;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.join-quiz {
+  background: #e9b1cb;
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.join-quiz input {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.join-btn {
+  background: #5b6842;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+}
+
+.explore-btn {
+  background: #5b6842;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.upload-box {
+  background: #61336c;
+  padding: 2rem;
+  margin: 2rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.upload-btn {
+  background: #ffd3d3;
+  color: #000;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bottom-nav button {
+  background: #391c43;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+}
+
+.bottom-nav .active {
+  background-color: #9aba87;
+  color: #000;
+}
+
+.quote-section {
+  background: #61336c;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 12px;
+}

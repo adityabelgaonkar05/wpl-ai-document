@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload PDF</title>
+</head>
+<body>
+  <h1>Upload PDF to Generate Quiz</h1>
+  <form id="upload-form">
+    <input type="file" id="pdf-file" accept="application/pdf" required />
+    <button type="submit">Upload</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById("upload-form");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fileInput = document.getElementById("pdf-file");
+      const file = fileInput.files[0];
+
+      const formData = new FormData();
+      formData.append("pdf", file);
+
+      try {
+        const res = await fetch("http://localhost:3000/api/upload", {
+          method: "POST",
+          body: formData
+        });
+        const data = await res.json();
+        if (data.quiz_id) {
+          result.innerHTML = `<p>Quiz created with ID: <strong>${data.quiz_id}</strong></p>`;
+        } else {
+          result.innerHTML = `<p>Error: ${data.error}</p>`;
+        }
+      } catch (err) {
+        result.innerHTML = `<p>Upload failed.</p>`;
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
