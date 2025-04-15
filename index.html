@@ -16,7 +16,7 @@
       <label for="quiz-code">Join Quiz</label>
       <div class="input-join">
         <input type="text" id="quiz-code" placeholder="Enter Joining Code" />
-        <button class="join-btn">JOIN</button>
+        <button onclick="movetoquiz()" class="join-btn">JOIN</button>
       </div>
     </section>
 
@@ -47,6 +47,30 @@
       </p>
     </section>
   </main>
+
+  <script>
+    function movetoquiz() {
+      const quizCode = document.getElementById('quiz-code').value;
+      if (quizCode) {
+        window.location.href = `quiz.html?quiz_id=${quizCode}`;
+      } else {
+        alert('Please enter a valid quiz code.');
+      }
+    }
+
+    document.getElementById('trigger-upload').addEventListener('click', function() {
+      document.getElementById('pdf-input').click();
+    });
+
+    document.getElementById('pdf-input').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file && file.type === 'application/pdf') {
+        document.getElementById('upload-form').submit();
+      } else {
+        alert('Please upload a valid PDF file.');
+      }
+    });
+  </script>
 
   <script src="script/upload.js" defer></script>
 </body>
