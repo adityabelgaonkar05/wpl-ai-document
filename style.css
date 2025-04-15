@@ -1,154 +1,111 @@
-body {
-  background-color: #3a0d44;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-}
-
-.login-container {
-  max-width: 400px;
-  margin: 60px auto;
-  background-color: #5a2b6d;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  text-align: center;
-  border: 1px solid #a478b1;
-}
-
-.login-container h2 {
-  margin-bottom: 30px;
-  color: white;
-  letter-spacing: 2px;
-}
-
-.login-container label {
-  display: block;
-  text-align: left;
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-.login-container input[type="text"],
-.login-container input[type="email"],
-.login-container input[type="password"] {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  margin-bottom: 20px;
-  font-size: 14px;
-  background-color: white;
-  color: #3a0d44;
-}
-
-.login-container .login-btn {
-  width: 100%;
-  background-color: #90a07b;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.login-container .login-btn:hover {
-  background-color: #7f8f6d;
-}
-
-.login-container .bottom-links {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #c4afcf;
-}
-
-.login-container .bottom-links a {
-  color: #c4afcf;
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 5px;
-}
-
-.login-container .remember-forgot {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  color: #c4afcf;
-  margin-top: -10px;
-  margin-bottom: 20px;
-}
+/* Base Setup */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #391c43;
+  font-family: 'Poppins', sans-serif;
+  background-color: #3a0d44;
   color: #fff;
 }
 
-.header {
+.navbar {
   background: #2d103b;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
   font-size: 2rem;
   color: #9aba87;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
+  font-weight: bold;
 }
 
 .join-quiz {
   background: #e9b1cb;
-  padding: 1rem;
-  margin: 2rem;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  color: #3a0d44;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
 }
 
-.join-quiz input {
+.input-join {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.input-join input {
   flex: 1;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .join-btn {
   background: #5b6842;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.hero {
-  text-align: center;
-  padding: 2rem;
+.journey {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+.journey-text {
+  flex: 1;
+  font-size: 1.5rem;
+}
+
+.journey-img {
+  flex: 1;
+  min-height: 250px;
+  background: url('your-image-path.jpg') center/cover no-repeat;
+  border-radius: 12px;
 }
 
 .explore-btn {
+  margin-top: 1rem;
   background: #5b6842;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.25rem;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.upload-section {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.upload-section h2 {
+  margin-bottom: 1rem;
+  color: #ffd3d3;
 }
 
 .upload-box {
   background: #61336c;
   padding: 2rem;
-  margin: 2rem;
-  text-align: center;
-  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+.try-it {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 .upload-btn {
@@ -158,33 +115,36 @@ nav a {
   border: none;
   border-radius: 8px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.bottom-nav {
+.tabs {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
-.bottom-nav button {
+.tab {
   background: #391c43;
   color: #fff;
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.bottom-nav .active {
+.tab.active {
   background-color: #9aba87;
   color: #000;
 }
 
-.quote-section {
+.challenge {
   background: #61336c;
   text-align: center;
   padding: 2rem;
-  margin-top: 2rem;
+  margin: 3rem 2rem;
   border-radius: 12px;
 }
