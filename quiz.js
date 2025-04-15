@@ -15,17 +15,26 @@ async function loadQuiz() {
   quizData = typeof data.questions === "string" ? JSON.parse(data.questions) : data.questions;
   console.log(quizData);
   quizContainer.innerHTML = quizData
-    .map((q, index) => `
-      <div class="question-block">
-        <p><strong>Q${index + 1}:</strong> ${q.question}</p>
-        ${q.options.map((opt, i) => `
-          <label>
-            <input type="radio" name="q${index}" value="${opt}">
-            ${opt}
-          </label><br/>
-        `).join('')}
+  .map(
+    (q, index) => `
+    <div class="question-block">
+      <p class="question"><strong>Q${index + 1}:</strong> ${q.question}</p>
+      <div class="options">
+        ${q.options
+          .map(
+            (opt, i) => `
+            <label class="option">
+              <input type="radio" name="q${index}" value="${opt}">
+              ${opt}
+            </label>
+          `
+          )
+          .join('')}
       </div>
-    `).join('');
+    </div>
+  `
+  )
+  .join('');
 }
 
 submitButton.addEventListener("click", () => {
