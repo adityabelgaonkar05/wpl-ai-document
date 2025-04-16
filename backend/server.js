@@ -21,7 +21,7 @@ app.post("/api/upload", upload.single("pdf"), async (req, res) => {
   try {
     const pdfBuffer = req.file.buffer || require("fs").readFileSync(req.file.path);
     const data = await pdfParse(pdfBuffer);
-    const extractedText = data.text.slice(0, 30000); // Keep under Gemini token limit
+    const extractedText = data.text.slice(0, 30000);
 
     const quiz = await generateQuizFromText(extractedText);
     const quizId = await saveQuiz(JSON.stringify(quiz));

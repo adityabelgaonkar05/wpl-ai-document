@@ -22,8 +22,7 @@ pdfInput.addEventListener("change", async () => {
 
     const data = await res.json();
 
-    if (res.ok) {
-      // redirect to quiz page
+    if (res.success) {
       window.location.href = `/quiz.html?quiz_id=${data.quiz_id}`;
     } else {
       alert(data.error || "Something went wrong");
