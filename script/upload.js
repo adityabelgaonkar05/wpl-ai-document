@@ -35,5 +35,5 @@ pdfInput.addEventListener("change", () => {
 
   setTimeout(() => {
     window.location.href = `/quiz.html?quiz_id=${generatedId}`;
-  }, 500);
+  }, 50);
 });
