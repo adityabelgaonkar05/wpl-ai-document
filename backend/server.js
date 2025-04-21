@@ -1,5 +1,3 @@
-// backend/server.js
-
 const express = require("express");
 const multer = require("multer");
 const pdfParse = require("pdf-parse");
@@ -23,9 +21,16 @@ app.post("/api/upload", upload.single("pdf"), async (req, res) => {
     const data = await pdfParse(pdfBuffer);
     const extractedText = data.text.slice(0, 30000);
 
+    // Get the client-supplied ID if it exists
+    const generatedId = req.body.generatedId;
+    
     const quiz = await generateQuizFromText(extractedText);
-    const quizId = await saveQuiz(JSON.stringify(quiz));
+    
+    // Pass the generatedId to saveQuiz, which will need to be updated to handle it
+    const quizId = await saveQuiz(JSON.stringify(quiz), generatedId);
 
+    console.log(`Quiz saved with ID: ${quizId}`);
+    
     res.json({ success: true, quiz_id: quizId });
   } catch (err) {
     console.error(err);

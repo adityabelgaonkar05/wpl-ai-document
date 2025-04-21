@@ -3,32 +3,37 @@
 const uploadBtn = document.getElementById("trigger-upload");
 const pdfInput = document.getElementById("pdf-input");
 
+// Simple function to generate an 8-character ID
+function generateId(length = 8) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
 uploadBtn.addEventListener("click", () => {
   pdfInput.click();
 });
 
-pdfInput.addEventListener("change", async () => {
+pdfInput.addEventListener("change", () => {
   const file = pdfInput.files[0];
   if (!file) return;
 
+  const generatedId = generateId();
+  console.log("Generated ID:", generatedId);
+
   const formData = new FormData();
   formData.append("pdf", file);
+  formData.append("generatedId", generatedId);
 
-  try {
-    const res = await fetch("http://localhost:3000/api/upload", {
-      method: "POST",
-      body: formData
-    });
+  fetch("http://localhost:3000/api/upload", {
+    method: "POST",
+    body: formData
+  });
 
-    const data = await res.json();
-
-    if (res.success) {
-      window.location.href = `/quiz.html?quiz_id=${data.quiz_id}`;
-    } else {
-      alert(data.error || "Something went wrong");
-    }
-  } catch (err) {
-    console.error(err);
-    alert("Upload failed");
-  }
+  setTimeout(() => {
+    window.location.href = `/quiz.html?quiz_id=${generatedId}`;
+  }, 500);
 });

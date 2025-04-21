@@ -24,15 +24,7 @@ function idExists(id) {
   });
 }
 
-async function saveQuiz(questionsJson) {
-  let id;
-  let exists = true;
-
-  while (exists) {
-    id = generateId();
-    exists = await idExists(id);
-  }
-
+async function saveQuiz(questionsJson, id) {
   console.log(`Generated unique ID: ${id}`);
 
   return new Promise((resolve, reject) => {
