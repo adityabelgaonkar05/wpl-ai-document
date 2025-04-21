@@ -57,19 +57,6 @@
         alert('Please enter a valid quiz code.');
       }
     }
-
-    document.getElementById('trigger-upload').addEventListener('click', function() {
-      document.getElementById('pdf-input').click();
-    });
-
-    document.getElementById('pdf-input').addEventListener('change', function(event) {
-      const file = event.target.files[0];
-      if (file && file.type === 'application/pdf') {
-        document.getElementById('upload-form').submit();
-      } else {
-        alert('Please upload a valid PDF file.');
-      }
-    });
   </script>
 
   <script src="script/upload.js" defer></script>
