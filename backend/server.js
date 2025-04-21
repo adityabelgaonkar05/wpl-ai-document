@@ -19,7 +19,7 @@ app.post("/api/upload", upload.single("pdf"), async (req, res) => {
   try {
     const pdfBuffer = req.file.buffer || require("fs").readFileSync(req.file.path);
     const data = await pdfParse(pdfBuffer);
-    const extractedText = data.text.slice(0, 30000);
+    const extractedText = data.text.slice(0, 300000);
 
     // Get the client-supplied ID if it exists
     const generatedId = req.body.generatedId;
