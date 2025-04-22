@@ -59,8 +59,7 @@ A web application that converts PDF documents into interactive quizzes using AI 
 1. **Setup the backend**:
    ```cd backend
    npm install
-   npm start```
-
+   npm start
 2. **Frontend**:
    - Simply open index.html
 
